@@ -1,9 +1,24 @@
 <template>
   <div class="main">
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="date" label="日期" width="180" />
-      <el-table-column prop="name" label="姓名" width="180" />
-      <el-table-column prop="address" label="地址" />
+    <el-table
+      :data="tableData"
+      style="width: 100%"
+      :height="height"
+      :stripe="stripe"
+      :border="border"
+      :size="size"
+      :fit="fit"
+      :showHeader="showHeader"
+      :highlightCurrentRow="highlightCurrentRow"
+      :emptyText="emptyText"
+    >
+      <el-table-column
+        v-for="item in columns"
+        :key="item.prop"
+        :prop="item.prop"
+        :label="item.label"
+        :width="item.width ? item.width : 120"
+      />
     </el-table>
   </div>
 </template>
@@ -11,31 +26,41 @@
 <script>
 export default {
   name: "RBTable",
+  props: {
+    columns: {
+      type: Array,
+      default: () => []
+    },
+    tableData: {
+      type: Array,
+      default: () => []
+    },
+    height: String,
+    stripe: {
+      type: Boolean,
+      default: false
+    },
+    border: {
+      type: Boolean,
+      default: false
+    },
+    size: String,
+    fit: {
+      type: Boolean,
+      default: true
+    },
+    showHeader: {
+      type: Boolean,
+      default: true
+    },
+    highlightCurrentRow: {
+      type: Boolean,
+      default: false
+    },
+    emptyText: String
+  },
   data() {
-    return {
-      tableData: [
-        {
-          date: "2016-05-02",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1518 弄"
-        },
-        {
-          date: "2016-05-04",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1517 弄"
-        },
-        {
-          date: "2016-05-01",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1519 弄"
-        },
-        {
-          date: "2016-05-03",
-          name: "王小虎",
-          address: "上海市普陀区金沙江路 1516 弄"
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>
