@@ -1,6 +1,6 @@
 {
   "name": "rb-components-vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "lib/rb-components-vue.umd.js",
   "author": "Robin",
   "description": "基于element-ui实现的二次封装",
