@@ -2,7 +2,6 @@
   <div class="main">
     <el-table
       :data="tableData"
-      style="width: 100%"
       :height="height"
       :stripe="stripe"
       :border="border"
@@ -12,13 +11,15 @@
       :highlightCurrentRow="highlightCurrentRow"
       :emptyText="emptyText"
     >
+      <slot name="behind" />
       <el-table-column
         v-for="item in columns"
         :key="item.prop"
         :prop="item.prop"
         :label="item.label"
-        :width="item.width ? item.width : 120"
+        :width="item.width ? item.width : ''"
       />
+      <slot name="before" />
     </el-table>
   </div>
 </template>
@@ -42,7 +43,7 @@ export default {
     },
     border: {
       type: Boolean,
-      default: false
+      default: true
     },
     size: String,
     fit: {
@@ -67,7 +68,7 @@ export default {
 
 <style scoped>
 .main {
-  width: 1000px;
-  border: 1px solid #999;
+  padding: auto;
+  border: auto;
 }
 </style>
