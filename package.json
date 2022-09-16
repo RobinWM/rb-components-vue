@@ -1,11 +1,19 @@
 {
   "name": "rb-components-vue",
   "version": "0.1.0",
-  "private": true,
+  "main": "lib/rb-components-vue.umd.js",
+  "author": "Robin",
+  "description": "基于element-ui实现的二次封装",
+  "license": "MIT",
+  "keywords": [
+    "vue2",
+    "element-ui"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name rb-components-vue --dest lib src/components/index.js"
   },
   "dependencies": {
     "core-js": "^3.8.3",
@@ -18,8 +26,10 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "vue-cli-plugin-element": "~1.0.1",
     "vue-template-compiler": "^2.6.14"
   },
   "eslintConfig": {
