@@ -18,6 +18,7 @@
         :prop="item.prop"
         :label="item.label"
         :width="item.width ? item.width : ''"
+        :align="item.align ? item.width : 'center'"
       />
       <slot name="before" />
     </el-table>
